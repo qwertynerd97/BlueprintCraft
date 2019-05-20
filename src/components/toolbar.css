@@ -1,0 +1,32 @@
+.block-button {
+  background: none;
+  border-width: 0;
+  padding: 0;
+  margin: 0;
+  display: inline-block;
+}
+
+.block-image {
+  width: 3em;
+}
+
+.toolbar {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}
+
+.block-bar {
+  overflow-x: scroll;
+  overflow-y: hidden;
+  white-space: nowrap;
+  -webkit-overflow-scrolling: touch;
+  background: white;
+}
+
+.curr-block-display {
+  width: 3em;
+  border-radius: 50%;
+  margin: 0.5em;
+  background: white;
+}
