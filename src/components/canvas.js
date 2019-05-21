@@ -33,9 +33,12 @@ class Canvas extends React.Component {
 			<table 
 				className="canvas"
 				onPointerDown={this.onPointerDown.bind(this)} 
+				onTouchStart={this.onPointerDown.bind(this)}
 				onPointerMove={this.onPointerMove.bind(this)}
+				onTouchMove={this.onPointerMove.bind(this)}
 				onPointerUp={this.onPointerUp.bind(this)}
-				onPointerLeave={this.onPointerUp.bind(this)} >
+				onPointerLeave={this.onPointerUp.bind(this)}
+				onTouchEnd={this.onPointerUp.bind(this)} >
 				<tbody>
 				{this.props.pattern.map((row, rIndex) => (
 					<tr key={rIndex} className="row">
