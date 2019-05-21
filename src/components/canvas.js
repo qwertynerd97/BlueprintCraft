@@ -30,42 +30,47 @@ class Canvas extends React.Component {
 
 	render() {
 		return (
-			<table 
-				className="canvas"
-				onPointerDown={this.onPointerDown.bind(this)} 
-				onTouchStart={this.onPointerDown.bind(this)}
-				onPointerMove={this.onPointerMove.bind(this)}
-				onTouchMove={this.onPointerMove.bind(this)}
-				onPointerUp={this.onPointerUp.bind(this)}
-				onPointerLeave={this.onPointerUp.bind(this)}
-				onTouchEnd={this.onPointerUp.bind(this)} >
-				<tbody>
-				{this.props.pattern.map((row, rIndex) => (
-					<tr key={rIndex} className="row">
-						{row.map((cell, index) => {
-							const blockId = this.props.pattern[rIndex][index]
-							const block = blocks[blockId]
+			<div
+				className="canvas">
+				<table 
+					cellSpacing="0"
+					onPointerDown={this.onPointerDown.bind(this)} 
+					onTouchStart={this.onPointerDown.bind(this)}
+					onPointerMove={this.onPointerMove.bind(this)}
+					onTouchMove={this.onPointerMove.bind(this)}
+					onPointerUp={this.onPointerUp.bind(this)}
+					onPointerLeave={this.onPointerUp.bind(this)}
+					onTouchEnd={this.onPointerUp.bind(this)} >
+					<tbody>
+					{this.props.pattern.map((row, rIndex) => (
+						<tr key={rIndex} className="row">
+							{row.map((cell, index) => {
+								const blockId = this.props.pattern[rIndex][index]
+								const block = blocks[blockId]
 
-							return(
-								<td
-									key={index} 
-									className="block-cell"
-									data-row={rIndex}
-									data-col={index} >
-									<img 
-										src={block.img} 
-										className="cell-image" 
-										alt={block.key}
+								return(
+									<td
+										key={index} 
+										className="block-cell"
 										data-row={rIndex}
-										data-col={index}
-										draggable={false} />
-								</td>
-							)
-						})}
-					</tr>
-				))}
-				</tbody>
-			</table>
+										data-col={index} >
+										<img 
+											src={block.img} 
+											className="cell-image" 
+											alt={block.key}
+											data-row={rIndex}
+											data-col={index}
+											draggable={false} />
+									</td>
+								)
+							})}
+						</tr>
+					))}
+					</tbody>
+				</table>
+
+				<div className="spacer" />
+			</div>
 		)
 	}
 }

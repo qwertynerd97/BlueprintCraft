@@ -16,6 +16,7 @@
   white-space: nowrap;
   padding: 0;
   margin: 0;
+  border-spacing: 0;
 }
 
 .canvas {
@@ -25,5 +26,16 @@
   -webkit-overflow-scrolling: touch;
   background: white;
   border-spacing: 0;
-  margin-bottom: 3em;
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 9em;
+  border: 1px solid green;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+  z-index: 1;
 }

@@ -8,7 +8,7 @@ class Toolbar extends React.Component {
 		const currentBlock = blocks[this.props.currBlock]
 		return (
 			<div className="toolbar">
-				<div>
+				<div className="info-bar">
 					<img 
 						src={currentBlock.block ? currentBlock.block : currentBlock.img} 
 						className="curr-block-display"
