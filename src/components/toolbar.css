@@ -4,10 +4,12 @@
   padding: 0;
   margin: 0;
   display: inline-block;
+  width: 5em;
+  height: 5em;
 }
 
 .block-image {
-  width: 3em;
+  width: 5em;
 }
 
 .toolbar {
@@ -25,7 +27,7 @@
 }
 
 .curr-block-display {
-  width: 3em;
+  width: 4em;
   border-radius: 50%;
   margin: 0.5em;
   background: white;

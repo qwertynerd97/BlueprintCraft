@@ -36,6 +36,8 @@ class App extends React.Component {
 
 	setBlock(x, y) {
 		const pattern = this.state.pattern
+		console.log(pattern)
+		console.log(x,y)
 		pattern[x][y] = this.state.currentItem
 
 		this.setState({ pattern })

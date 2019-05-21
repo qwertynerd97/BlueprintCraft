@@ -19,7 +19,8 @@ class Toolbar extends React.Component {
 						<button 
 							key={block.key} 
 							className="block-button"
-							onClick={() => this.props.onClick(index)}>
+							onClick={() => this.props.onClick(index)}
+							data-block={block.key}>
 							<img 
 								src={block.block ? block.block : block.img} 
 								className="block-image" 
