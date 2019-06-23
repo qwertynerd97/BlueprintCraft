@@ -1,41 +1,37 @@
 .block-cell {
   background: none;
-  border: 1px dashed grey;
+  border: 1px solid grey;
   padding: 0;
   margin: 0;
-  display: inline-block;
-  height: 3em;
-  overflow: hidden;
+  height: 1.5em;
+  width: 1.5em;
+  cursor: cell;
 }
 
 .cell-image {
-  width: 3em;
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  margin: 0;
 }
 
 .row {
-  white-space: nowrap;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
   padding: 0;
   margin: 0;
-  border-spacing: 0;
 }
 
 .canvas {
-  overflow-x: scroll;
-  overflow-y: scroll;
-  white-space: nowrap;
-  -webkit-overflow-scrolling: touch;
-  background: white;
-  border-spacing: 0;
   position: fixed;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   left: 0;
   right: 0;
   top: 0;
   bottom: 9em;
   border: 1px solid green;
-}
-
-table {
-  border-collapse: collapse;
-  border-spacing: 0;
-  z-index: 1;
+  background-color: lightgrey
 }

@@ -35,9 +35,8 @@ class App extends React.Component {
 	}
 
 	setBlock(x, y) {
+		if(!x || !y) return
 		const pattern = this.state.pattern
-		console.log(pattern)
-		console.log(x,y)
 		pattern[x][y] = this.state.currentItem
 
 		this.setState({ pattern })
@@ -46,9 +45,14 @@ class App extends React.Component {
 	render() {
 		return (
 			<div className="App">
-				<Canvas pattern={this.state.pattern} onClick={this.setBlock.bind(this)} />
+				<Canvas 
+					pattern={this.state.pattern} 
+					onClick={this.setBlock.bind(this)} />
 
-				<Toolbar currBlock={this.state.currentItem} onClick={this.setCurrentItem.bind(this)} />
+				<Toolbar 
+					pattern={this.state.pattern}
+					currBlock={this.state.currentItem} 
+					onClick={this.setCurrentItem.bind(this)} />
 			</div>
 		)
 	}
