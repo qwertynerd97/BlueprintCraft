@@ -35,7 +35,6 @@ class App extends React.Component {
 	}
 
 	setBlock(x, y) {
-		if(!x || !y) return
 		const pattern = this.state.pattern
 		pattern[x][y] = this.state.currentItem
 
