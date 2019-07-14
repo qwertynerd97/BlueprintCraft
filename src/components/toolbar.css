@@ -36,9 +36,18 @@
   z-index: 2;
 }
 
+.open-inventory {
+  width: 4em;
+  height: 4em;
+  border-radius: 0.3em;
+  margin: 0.5em;
+  background: white;
+  z-index: 2;
+}
+
 .download-button {
   width: 4em;
   height: 4em;
-  border-radius: 50%;
+  border-radius: 0.3em;
   margin: 0.5em;
 }

@@ -1,0 +1,73 @@
+.modal {
+	margin: 2.5em;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	position: absolute;
+	outline: none;
+}
+
+.overlay {
+	position: fixed; 
+	top: 0px; 
+	left: 0px; 
+	right: 0px; 
+	bottom: 0px; 
+	background-color: rgba(0, 0, 0, 0.5);
+}
+
+.inventory {
+	position: relative;
+	height: 100%;
+}
+
+.tab-button {
+	height: 2.5em;
+	position: relative;
+	border: 1px solid white;
+	background: #DDD;
+	border-radius: 0.3em 0.3em 0 0;
+}
+
+.current {
+	border: 1px solid black;
+	border-bottom: transparent;
+	z-index: 100;
+}
+
+.close-button {
+	position: absolute;
+	right: -0.15em;
+	height: 2.5em;
+	width: 2.5em;
+	border: 1px solid black;
+	background: #AAA;
+	z-index: 100;
+	border-radius: 0.3em 0.3em 0 0;
+}
+
+.tab {
+	border: 1px solid black;
+	background: #DDD;
+	position: absolute;
+	top: 2em;
+	bottom: 0;
+	width: 100%;
+	overflow: scroll;
+	border-radius: 0 0 0.3em 0.3em;
+}
+
+.hide {
+	display: none;
+}
+
+.inventory-block {
+	width: 3em;
+	height: 3em;
+	margin: 0.3em;
+}
+
+.active {
+	opacity: .5;
+}

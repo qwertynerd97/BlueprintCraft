@@ -38,13 +38,15 @@ class Toolbar extends React.Component {
 
 	render() {
 		const currentBlock = blocks[this.props.currBlock]
+		const chest = blocks["chest"]
 		return (
 			<div className="toolbar">
 				<div className="info-bar">
 					<img 
-						src={currentBlock.block ? currentBlock.block : currentBlock.img} 
-						className="curr-block-display"
-						alt={currentBlock.key}/>
+						src={chest.img} 
+						className="open-inventory"
+						alt={"Open Inventory"}
+						onClick={this.props.openModal} />
 					<img
 						src={currentBlock.block ? currentBlock.block : currentBlock.img} 
 						className="curr-block-display"
@@ -56,18 +58,20 @@ class Toolbar extends React.Component {
 						onClick={this.onClick.bind(this)}/>
 				</div>
 				<div className="block-bar">
-					{blocks.map((block, index) => (
-						<button 
-							key={block.key} 
-							className="block-button"
-							onClick={() => this.props.onClick(index)}
-							data-block={block.key}>
-							<img 
-								src={block.block ? block.block : block.img} 
-								className="block-image" 
-								alt={block.key}/>
-						</button>
-					))}
+					{this.props.blockList.map(blockName => {
+						const block = blocks[blockName]
+						return (
+							<button 
+								key={block.key} 
+								className="block-button"
+								onClick={() => this.props.onClick(blockName)}
+								data-block={block.key}>
+								<img 
+									src={block.block ? block.block : block.img} 
+									className="block-image" 
+									alt={block.key}/>
+							</button>
+					)})}
 				</div>
 			</div>		
 		)
