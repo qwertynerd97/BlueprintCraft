@@ -1,0 +1,2 @@
+### react-map-interaction
+These files are copied from [react-map-interaction](https://github.com/transcriptic/react-map-interaction/issues) with the changes from [PR #32](https://github.com/transcriptic/react-map-interaction/pull/32) so that they work on mobile.  Once this PR is merged into master, these files can be removed and the imort can revert to the node_module

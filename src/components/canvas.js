@@ -1,5 +1,7 @@
 import React from 'react'
-import { MapInteractionCSS } from 'react-map-interaction';
+// Uncomment when PR 32 is merged into master
+// import { MapInteractionCSS } from 'react-map-interaction';
+import MapInteractionCSS from '../map-interaction/MapInteractionCSS'
 import './canvas.css'
 
 import blocks from '../minecraft/blocks'
@@ -24,17 +26,14 @@ class Canvas extends React.Component {
 		// Move has to be specially handled for mobile devices
 		if(event.targetTouches) {
 			const touch = event.targetTouches[0]
-			const canvas = this.canvas.current
 
-			const rowSize = canvas.clientHeight / 16
-			const colSize = canvas.clientWidth / 16
+			const currTarget = document.elementFromPoint(
+				touch.pageX,
+				touch.pageY
+			)
 
-			const row = Math.floor(touch.clientY / rowSize)
-			const col = Math.floor(touch.clientX / colSize)
-
-			this.setState({ isPointerDown: true })
-			if (row > 15 || col > 15) return
-			return this.props.onClick(row, col)
+			const data = currTarget.dataset
+			return this.props.onClick(data.row, data.col)
 		}
 
 		this.props.onClick(data.row, data.col)
@@ -47,16 +46,14 @@ class Canvas extends React.Component {
 		// Move has to be specially handled for mobile devices
 		if(event.targetTouches) {
 			const touch = event.targetTouches[0]
-			const canvas = this.canvas.current
 
-			const rowSize = canvas.clientHeight / 16
-			const colSize = canvas.clientWidth / 16
+			const currTarget = document.elementFromPoint(
+				touch.pageX,
+				touch.pageY
+			)
 
-			const row = Math.floor(touch.clientY / rowSize)
-			const col = Math.floor(touch.clientX / colSize)
-
-			if (row > 15 || col > 15) return
-			return this.props.onClick(row, col)
+			const data = currTarget.dataset
+			return this.props.onClick(data.row, data.col)
 		}
 
 		const data = event.target.dataset
@@ -71,7 +68,8 @@ class Canvas extends React.Component {
 		return (
 			<div className="canvas-holder">
 				<MapInteractionCSS
-					disablePan={this.props.mode === "draw"}>
+					disablePan={this.props.mode === "draw"}
+					containerAsEventTarget>
 					<div className="scroll-container">
 						<div className="canvas"
 							onPointerDown={this.onDragStart.bind(this)} 

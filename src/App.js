@@ -96,11 +96,6 @@ class App extends React.Component {
 	render() {
 		return (
 			<div className="App">
-				<Canvas 
-					pattern={this.state.pattern} 
-					onClick={this.setBlock.bind(this)} 
-					mode={this.state.mode} />
-
 				<Toolbar 
 					pattern={this.state.pattern}
 					currBlock={this.state.currentItem}
@@ -108,6 +103,11 @@ class App extends React.Component {
 					onClick={this.setCurrentItem.bind(this)}
 					openModal={this.openModal.bind(this)} 
 					setMode={this.setMode.bind(this)}
+					mode={this.state.mode} />
+
+				<Canvas 
+					pattern={this.state.pattern} 
+					onClick={this.setBlock.bind(this)} 
 					mode={this.state.mode} />
 
 				<Modal
