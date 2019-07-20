@@ -25,6 +25,8 @@ class Canvas extends React.Component {
 
 		// Move has to be specially handled for mobile devices
 		if(event.targetTouches) {
+			console.log(event.targetTouches)
+			if(event.targetTouches.length > 1) return
 			const touch = event.targetTouches[0]
 
 			const currTarget = document.elementFromPoint(
@@ -45,6 +47,8 @@ class Canvas extends React.Component {
 
 		// Move has to be specially handled for mobile devices
 		if(event.targetTouches) {
+			console.log(event.targetTouches)
+			if(event.targetTouches.length > 1) return
 			const touch = event.targetTouches[0]
 
 			const currTarget = document.elementFromPoint(
