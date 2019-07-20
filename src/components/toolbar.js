@@ -1,10 +1,12 @@
 import React from 'react'
 import mergeImages from 'merge-images';
-import './toolbar.css'
+import './toolbar.scss'
 
 import blocks from '../minecraft/blocks'
 
 const downloadIcon = require('../assets/download-solid.svg')
+const moveIcon = require('../assets/arrows-alt-solid.svg')
+const drawIcon = require('../assets/pencil-alt-solid.svg')
 
 class Toolbar extends React.Component {
 	downloadFile(filename, b64) {
@@ -21,7 +23,7 @@ class Toolbar extends React.Component {
 		document.body.removeChild(element)
 	}
 
-	onClick() {
+	download() {
 		const mergerObject = this.props.pattern.map((row, rIndex) => {
 			return row.map((blockId, cIndex) => ({ 
 				x: cIndex * 16, 
@@ -36,15 +38,25 @@ class Toolbar extends React.Component {
 			.then(b64 => this.downloadFile('blueprint.png', b64))
 	}
 
+	selectBlock(blockName) {
+		this.props.setMode("draw")
+		this.props.onClick(blockName)
+	}
+
 	render() {
 		const currentBlock = blocks[this.props.currBlock]
 		const chest = blocks["chest"]
 		return (
 			<div className="toolbar">
 				<div className="info-bar">
+					<img
+						src={downloadIcon}
+						className="option-button"
+						alt="Download Blueprint" 
+						onClick={this.download.bind(this)}/>
 					<img 
 						src={chest.img} 
-						className="open-inventory"
+						className="option-button"
 						alt={"Open Inventory"}
 						onClick={this.props.openModal} />
 					<img
@@ -52,10 +64,15 @@ class Toolbar extends React.Component {
 						className="curr-block-display"
 						alt={currentBlock.key}/>
 					<img
-						src={downloadIcon}
-						className="download-button"
-						alt="Download Blueprint" 
-						onClick={this.onClick.bind(this)}/>
+						src={drawIcon}
+						className={"option-button " + (this.props.mode === "draw" ? "" : "disabled")}
+						alt="Draw" 
+						onClick={() => this.props.setMode("draw")}/>
+					<img
+						src={moveIcon}
+						className={"option-button " + (this.props.mode === "move" ? "" : "disabled")}
+						alt="Move" 
+						onClick={() => this.props.setMode("move")}/>
 				</div>
 				<div className="block-bar">
 					{this.props.blockList.map(blockName => {
@@ -64,7 +81,7 @@ class Toolbar extends React.Component {
 							<button 
 								key={block.key} 
 								className="block-button"
-								onClick={() => this.props.onClick(blockName)}
+								onClick={this.selectBlock.bind(this, blockName)}
 								data-block={block.key}>
 								<img 
 									src={block.block ? block.block : block.img} 

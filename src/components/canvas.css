@@ -1,6 +1,7 @@
 .block-cell {
   background: none;
-  border: 1px solid grey;
+  border-top: 1px solid lightgrey;
+  border-left: 1px solid lightgrey;
   padding: 0;
   margin: 0;
   height: 1em;
@@ -24,8 +25,8 @@
 }
 
 .canvas {
-
-  border: 1px solid red;
+  border-bottom: 1px solid lightgrey;
+  border-right: 1px solid lightgrey;
 }
 
 .canvas-holder {
@@ -39,4 +40,17 @@
   bottom: 10em;
   border: 1px solid green;
   background-color: lightgrey
+}
+
+.scroll-container {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.canvas-holder > div {
+  text-align: center;
 }

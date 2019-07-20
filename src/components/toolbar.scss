@@ -1,0 +1,54 @@
+.toolbar {
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	width: 100%;
+
+	.info-bar {
+		.option-button {
+			width: 4em;
+			height: 4em;
+			border-radius: 0.3em;
+			margin: 0.5em;
+			background: white;
+			z-index: 2;
+		}
+
+		.curr-block-display {
+			width: 4em;
+			height: 4em;
+			border-radius: 50%;
+			margin: 0.5em;
+			background: white;
+			z-index: 2;
+		}
+
+		.disabled {
+			opacity: 0.5;
+		}
+	}
+
+	.block-bar {
+		overflow-x: scroll;
+		overflow-y: hidden;
+		white-space: nowrap;
+		-webkit-overflow-scrolling: touch;
+		background: white;
+
+		.block-button {
+			background: none;
+			border-width: 0;
+			padding: 0;
+			margin: 0;
+			display: inline-block;
+			width: 5em;
+			height: 5em;
+		}
+
+		.block-image {
+			width: 5em;
+		}
+	}
+}
+
+

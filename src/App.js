@@ -51,6 +51,7 @@ class App extends React.Component {
 				"wool_pink"
 			],
 			modalIsOpen: false,
+			mode: "draw"
 		}
 	}
 
@@ -74,6 +75,10 @@ class App extends React.Component {
 		this.setState({ modalIsOpen: false })
 	}
 
+	setMode(mode) {
+		this.setState({ mode })
+	}
+
 	toggleBlock(blockName) {
 		this.setState(prevState => {
 			const hasBlock = prevState.blockList.indexOf(blockName)
@@ -93,14 +98,17 @@ class App extends React.Component {
 			<div className="App">
 				<Canvas 
 					pattern={this.state.pattern} 
-					onClick={this.setBlock.bind(this)} />
+					onClick={this.setBlock.bind(this)} 
+					mode={this.state.mode} />
 
 				<Toolbar 
 					pattern={this.state.pattern}
 					currBlock={this.state.currentItem}
 					blockList={this.state.blockList}
 					onClick={this.setCurrentItem.bind(this)}
-					openModal={this.openModal.bind(this)} />
+					openModal={this.openModal.bind(this)} 
+					setMode={this.setMode.bind(this)}
+					mode={this.state.mode} />
 
 				<Modal
 					isOpen={this.state.modalIsOpen}
