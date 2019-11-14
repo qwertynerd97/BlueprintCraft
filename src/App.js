@@ -60,7 +60,15 @@ class App extends React.Component {
 	}
 
 	setBlock(x, y) {
-		if(x < 0 || x > 15 || y < 0 || y > 15) return
+		if(
+			x === null || 
+			x === undefined || 
+			y === null || 
+			y === undefined ||
+			x < 0 || 
+			x > 15 || 
+			y < 0 || 
+			y > 15) return
 		const pattern = this.state.pattern
 		pattern[x][y] = this.state.currentItem
 
